@@ -82,7 +82,8 @@ grep -e "^#" -e "^MT" combined_genotyped.vcf > combined_genotyped.MT.vcf
 ```
 
 Annovar解析の実行
-MITOMAP.cfrm_report_all.180809.genericdb は MITOMAP https://www.mitomap.org/MITOMAP のデータを Annovar で読み込める形式に変換したもの。
+MITOMAP.cfrm_report_all.180809.genericdb は MITOMAP https://www.mitomap.org/MITOMAP のデータを Annovar で読み込める形式に変換したもの。  
+変換スクリプトは 00_make_mitomap_data.sh ですが、MITOMAP の記述はだいぶ変則的なものが混じっているので個別対応が必要になります。  
 
 Annovar解析の実行
 ```
