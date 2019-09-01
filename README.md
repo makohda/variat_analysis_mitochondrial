@@ -31,7 +31,7 @@ yhwu/matchclips2: paired end distance, split reads matching, read depth are used
 
 テストしてみる  
 ```
-./matchclips -t 4 -L 10000 -f rCRS_MT.fasta -b Pt1812.MT.bam -o Pt1812.matchclips.out
+./matchclips -t 4 -L 10000 -f rCRS_MT.fasta -b Pt1812*.MT.bam -o Pt1812.matchclips.out
 ./matchclips -t 4 -L 10000 -f rCRS_MT.fasta -b Pt1088*.MT.bam -o Pt1088.matchclips.out
 ./matchclips -t 4 -L 10000 -f rCRS_MT.fasta -b Pt0798*.MT.bam -o Pt0798.matchclips.out
 ./matchclips -t 4 -L 10000 -f rCRS_MT.fasta -b Pt1422*.MT.bam -o Pt1422.matchclips.out
