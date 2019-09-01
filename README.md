@@ -8,14 +8,14 @@
 
 
 ## mtDNA deletion の検出
-数kbp欠失していることがあるが、GATK variant callでは検出されないので別の手段が必要になる  
+数kbp欠失していることがあるが、GATK variant callでは検出されないので別の手段が必要になる。  
 この時  
 1. 何らかの手法で欠失を検出
 2. IGV で目視で確認 (この時ペアエンド表示にしていると一目でわかる)
 
-あたりが簡単な方法と思われる  
-サンプル数が増えると2から1になっていく  
-ここではペアエンド間の距離、スプリッドリード、シークエンスデプスを用いた解析を行える matchclips2 での解析 (1) を行う  
+あたりが簡単な方法と思われる。  
+サンプル数が増えると2から1になっていく。  
+ここではペアエンド間の距離、スプリッドリード、シークエンスデプスを用いた解析を行える matchclips2 での解析 (1) を行う。  
 
 ### Pre-require
 - rCRS.fasta の用意  
@@ -63,15 +63,15 @@ Pt1812
 ----
 
 ## mtDNA mutation の検出 (Annovar + MITOMAP)
-ミトコンドリアゲノム上にある変異は dbSNP, ClinVar, OMIM などなどいろいろ記載があるが MITOMAP のものが最もキュレーションされているようなので、これをアノテーションとして付加していく  
+ミトコンドリアゲノム上にある変異は dbSNP, ClinVar, OMIM などなどいろいろ記載があるが MITOMAP のものが最もキュレーションされているようなので、これをアノテーションとして付加していく。  
 
 ### 既知の変異例 (この後の実行例の正解例)
 内部DBから引いてください
 
 ### Annovar でのミトコンドリアバリアントのアノテーション
-combined_genotyped.vcf は GATK でバリアントコールして生成した .vcf から MT だけ抜き出したもの  
-この時、１つ注意として他の染色体のバリアントのようにバリアントフィルタリングをする前の combined_genotyped.vcf から作ること  
-GATK の様々なステップは常染色体を前提としているので、既知の変異もバリアントフィルタリングで除かれる場合があるため  
+combined_genotyped.vcf は GATK でバリアントコールして生成した .vcf から MT だけ抜き出したもの。  
+この時、１つ注意として他の染色体のバリアントのようにバリアントフィルタリングをする前の combined_genotyped.vcf から作ること。  
+GATK の様々なステップは常染色体を前提としているので、既知の変異もバリアントフィルタリングで除かれる場合があるため。  
 
 combined_genotyped.MT.vcf の作成
 ```
@@ -80,6 +80,9 @@ grep -e "^#" -e "^MT" combined_genotyped.vcf > combined_genotyped.MT.vcf
                              --allsample combined_genotyped.MT.vcf \
                              --outfile combined_genotyped.MT
 ```
+
+Annovar解析の実行
+MITOMAP.cfrm_report_all.180809.genericdb は MITOMAP https://www.mitomap.org/MITOMAP のデータを Annovar で読み込める形式に変換したもの。
 
 Annovar解析の実行
 ```
